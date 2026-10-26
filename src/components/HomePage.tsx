@@ -2,6 +2,7 @@ import { useEffect, useRef, type KeyboardEvent as ReactKeyboardEvent } from "rea
 import { useSearchParams } from "react-router-dom";
 import { filterModules, parseView, views, type ViewId } from "../modules/filter";
 import { modules } from "../modules/registry";
+import { siteTitle } from "../site";
 import { ProjectCard } from "./ProjectCard";
 import { SiteHeader } from "./SiteHeader";
 
@@ -16,7 +17,7 @@ export function HomePage() {
   const searchRef = useRef<HTMLInputElement>(null);
 
   useEffect(() => {
-    document.title = "史颉华 · 个人主页";
+    document.title = siteTitle;
   }, []);
 
   useEffect(() => {

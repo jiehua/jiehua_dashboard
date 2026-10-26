@@ -1,6 +1,7 @@
 import { useEffect, type CSSProperties } from "react";
 import { Link, useParams } from "react-router-dom";
 import { getModule } from "../modules/registry";
+import { siteName, siteTitle } from "../site";
 import { NotFound } from "./NotFound";
 import { SiteHeader } from "./SiteHeader";
 
@@ -9,9 +10,9 @@ export function ProjectPage() {
   const project = slug ? getModule(slug) : undefined;
 
   useEffect(() => {
-    document.title = project ? `${project.title} · 史颉华` : "未找到 · 史颉华";
+    document.title = project ? `${project.title} · ${siteName}` : `未找到 · ${siteName}`;
     return () => {
-      document.title = "史颉华 · 个人主页";
+      document.title = siteTitle;
     };
   }, [project]);
 
